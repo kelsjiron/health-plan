@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelsey — Complete Health & Fitness Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FFFEF9;
+    --ink: #1C1A17;
+    --ink-mid: #4A4640;
+    --ink-light: #8C8680;
+    --gold: #C4954A;
+    --gold-light: #F5E9D6;
+    --gold-pale: #FDF7EE;
+    --sage: #6B8C6E;
+    --sage-light: #E8F0E9;
+    --rose: #B5706A;
+    --rose-light: #F5E8E7;
+    --sky: #5A7FA8;
+    --sky-light: #E5EEF6;
+    --border: rgba(28,26,23,0.1);
+    --border-mid: rgba(28,26,23,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* Header */
+  .header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,74,0.2);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 120px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,74,0.12);
+  }
+  .header-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    line-height: 1.1;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .header-sub {
+    font-size: 16px;
+    color: rgba(255,254,249,0.6);
+    margin-top: 16px;
+    max-width: 500px;
+  }
+  .header-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,254,249,0.12);
+  }
+  .header-stat label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,254,249,0.45);
+    margin-bottom: 4px;
+  }
+  .header-stat span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--warm-white);
+  }
+
+  /* Nav tabs */
+  .nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    padding: 0 48px;
+  }
+  .nav-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink-light);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 16px 20px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-btn:hover { color: var(--ink-mid); }
+  .nav-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--gold);
+  }
+
+  /* Main layout */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+
+  /* Sections */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Section headings */
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--ink-mid);
+    max-width: 620px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+  }
+  .card-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .tag-gold { background: var(--gold-light); color: #8A6020; }
+  .tag-sage { background: var(--sage-light); color: #3D5E40; }
+  .tag-rose { background: var(--rose-light); color: #7A3F3A; }
+  .tag-sky { background: var(--sky-light); color: #2D5580; }
+
+  /* Data rows */
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+  .data-row:last-child { border-bottom: none; }
+  .data-label {
+    font-size: 13px;
+    color: var(--ink-mid);
+    flex: 0 0 auto;
+    max-width: 55%;
+  }
+  .data-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+  }
+  .data-note {
+    font-size: 12px;
+    color: var(--ink-light);
+    text-align: right;
+  }
+
+  /* Meal blocks */
+  .meal-block {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .meal-time {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .meal-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .meal-ingredients {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  .meal-ingredients li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-mid);
+  }
+  .meal-ingredients li:last-child { border-bottom: none; }
+  .meal-ingredients .qty { font-weight: 500; color: var(--ink); }
+  .meal-totals {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .meal-totals span {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .t-cal { background: var(--gold-pale); color: #8A6020; }
+  .t-pro { background: var(--sage-light); color: #3D5E40; }
+  .t-carb { background: var(--sky-light); color: #2D5580; }
+
+  /* Training grid */
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .day-cell {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: var(--warm-white);
+  }
+  .day-cell:hover { border-color: var(--gold); }
+  .day-cell.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--warm-white);
+  }
+  .day-cell.type-push { border-top: 3px solid var(--rose); }
+  .day-cell.type-lower { border-top: 3px solid var(--sage); }
+  .day-cell.type-cardio { border-top: 3px solid var(--sky); }
+  .day-cell.type-rest { border-top: 3px solid var(--border-mid); }
+  .day-cell.active.type-push { border-top: 3px solid var(--rose); }
+  .day-cell.active.type-lower { border-top: 3px solid var(--sage); }
+  .day-cell.active.type-cardio { border-top: 3px solid var(--sky); }
+  .day-name {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--ink-light);
+  }
+  .day-cell.active .day-name { color: rgba(255,254,249,0.6); }
+  .day-type {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .day-cell.active .day-type { color: var(--warm-white); }
+
+  .workout-detail { display: none; }
+  .workout-detail.show { display: block; }
+
+  .exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  .exercise-table th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    padding: 8px 12px;
+    text-align: left;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+  .exercise-table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+  .exercise-table td:first-child {
+    font-weight: 500;
+    color: var(--ink);
+    width: 28%;
+  }
+  .exercise-table tr:last-child td { border-bottom: none; }
+
+  /* Supplement cards */
+  .supp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .supp-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .supp-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .supp-dose {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .supp-timing {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+  }
+  .supp-note {
+    font-size: 11px;
+    color: var(--sage);
+    font-style: italic;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border-mid);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--warm-white);
+    border: 2px solid var(--gold);
+  }
+  .timeline-month {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .timeline-body {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .timeline-body ul {
+    margin: 8px 0 0 16px;
+  }
+  .timeline-body li {
+    margin-bottom: 4px;
+  }
+
+  /* Callout box */
+  .callout {
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    background: var(--gold-pale);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+  .callout strong { color: var(--ink); font-weight: 600; }
+  .callout.ttc { border-left-color: var(--rose); background: var(--rose-light); }
+  .callout.sage-note { border-left-color: var(--sage); background: var(--sage-light); }
+
+  /* Schedule */
+  .schedule-row {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 72px;
+    padding-top: 2px;
+    letter-spacing: 0.05em;
+  }
+  .schedule-text {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+  .schedule-text strong { color: var(--ink); }
+
+  /* Progress tracker */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .metric-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+  .metric-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .metric-sub {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 4px;
+  }
+  .metric-target {
+    font-size: 12px;
+    color: var(--sage);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  h3.sub {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 28px 0 16px;
+  }
+
+  p.note {
+    font-size: 13px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 700px) {
+    .main { padding: 24px 20px 60px; }
+    .header { padding: 40px 24px 36px; }
+    .header h1 { font-size: 36px; }
+    .nav-inner { padding: 0 20px; }
+    .day-grid { grid-template-columns: repeat(4, 1fr); }
+    .header-stats { flex-wrap: wrap; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">Complete Health & Fitness Protocol · 2026</div>
+  <h1>Kelsey's<br><em>Protocol</em></h1>
+  <p class="header-sub">A structured, science-backed system for body recomposition, longevity, and hormonal health — built for TTC.</p>
+  <div class="header-stats">
+    <div class="header-stat"><label>Starting weight</label><span>127 lb</span></div>
+    <div class="header-stat"><label>Target weight</label><span>118–122 lb</span></div>
+    <div class="header-stat"><label>Body fat goal</label><span>18–20%</span></div>
+    <div class="header-stat"><label>Timeline</label><span>14–15 wks</span></div>
+    <div class="header-stat"><label>Weekly loss rate</label><span>~0.75 lb</span></div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('overview')">Overview</button>
+    <button class="nav-btn" onclick="show('schedule')">Daily Schedule</button>
+    <button class="nav-btn" onclick="show('training')">Training Plan</button>
+    <button class="nav-btn" onclick="show('nutrition')">Nutrition</button>
+    <button class="nav-btn" onclick="show('supplements')">Supplements</button>
+    <button class="nav-btn" onclick="show('roadmap')">6-Month Roadmap</button>
+    <button class="nav-btn" onclick="show('tracking')">Tracking</button>
+    <button class="nav-btn" onclick="show('tracker')">📋 Log</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- OVERVIEW -->
+<div id="section-overview" class="section active">
+  <p class="section-title">The Plan at a Glance</p>
+  <p class="section-intro">Three years of consistent effort without results comes from one thing: no progressive overload. This protocol fixes that with structured resistance training, precise nutrition, and an anchored supplement routine.</p>
+
+  <div class="callout ttc">
+    <strong>TTC Note:</strong> Every recommendation in this protocol — training, nutrition, and supplementation — is safe for active trying to conceive and compatible with early pregnancy. Hormonal health is a primary consideration, not an afterthought.
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Body Composition Targets</span><span class="card-tag tag-gold">Goal</span></div>
+    <div class="data-row"><span class="data-label">Current body fat</span><span class="data-value">~24%</span></div>
+    <div class="data-row"><span class="data-label">Target body fat</span><span class="data-value">18–20%</span></div>
+    <div class="data-row"><span class="data-label">Fat loss needed</span><span class="data-value">~11 lb</span></div>
+    <div class="data-row"><span class="data-label">Target weight range</span><span class="data-value">118–122 lb</span></div>
+    <div class="data-row"><span class="data-label">Lean mass target</span><span class="data-value">~96 lb (maintain/grow)</span></div>
+    <div class="data-row"><span class="data-label">Rate of fat loss</span><span class="data-value">0.75 lb/week</span></div>
+    <div class="data-row"><span class="data-label">Timeline to goal</span><span class="data-value">14–15 weeks</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Calorie & Macro Targets</span><span class="card-tag tag-sage">Nutrition</span></div>
+    <div class="data-row"><span class="data-label">BMR (Mifflin-St Jeor)</span><span class="data-value">~1,385 cal</span></div>
+    <div class="data-row"><span class="data-label">TDEE (with activity + NEAT)</span><span class="data-value">~2,300–2,350 cal</span></div>
+    <div class="data-row"><span class="data-label">Daily NEAT from walks</span><span class="data-value">~2.85 miles · ~228 cal burned daily</span></div>
+    <div class="data-row"><span class="data-label">Training day calories</span><span class="data-value">1,800 cal</span></div>
+    <div class="data-row"><span class="data-label">Rest day calories</span><span class="data-value">1,700 cal</span></div>
+    <div class="data-row"><span class="data-label">Average weekly deficit</span><span class="data-value">~500 cal/day (appropriate for TTC)</span></div>
+    <div class="data-row"><span class="data-label">Daily protein target</span><span class="data-value">120–130g</span></div>
+    <div class="data-row"><span class="data-label">Carbohydrates</span><span class="data-value">Moderate — do not restrict</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Daily NEAT — Walk Breakdown</span><span class="card-tag tag-sky">Every Day</span></div>
+    <div class="data-row"><span class="data-label">Post-workout walk (dog)</span><span class="data-value">1.0 mi · ~20 min · ~80 cal</span></div>
+    <div class="data-row"><span class="data-label">Lunch walk</span><span class="data-value">0.60 mi · 15 min · ~48 cal</span></div>
+    <div class="data-row"><span class="data-label">Evening walk (dog, ~5pm)</span><span class="data-value">1.25 mi · ~25 min · ~100 cal</span></div>
+    <div class="data-row"><span class="data-label">Daily NEAT total</span><span class="data-value">2.85 mi · ~228 cal burned</span></div>
+    <div class="data-row"><span class="data-label">Wednesday bonus</span><span class="data-value">4.5 mi walk replaces structured training — full active recovery day</span></div>
+    <div class="data-row"><span class="data-label">Calorie target adjustment</span><span class="data-value">NEAT is higher than originally estimated — targets raised 50 cal to protect TTC hormonal health while maintaining ~500 cal/day deficit</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Why the Current Approach Wasn't Working</span><span class="card-tag tag-rose">Diagnosis</span></div>
+    <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;">
+      Three years of consistent effort without visible body composition change has a single cause: <strong>ad hoc HIIT video selection with no progressive overload.</strong> When the body is never challenged beyond what it already adapted to, it doesn't change. YouTube videos also cannot track whether you lifted heavier this week than last week.<br><br>
+      The new plan replaces randomness with structure. Every session has specific exercises, exact weights, set/rep targets, and clear overload rules. The body will be given a reason to change.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Weekly Training Split</span><span class="card-tag tag-sky">Training</span></div>
+    <div class="data-row"><span class="data-label">Monday</span><span class="data-value">Lower Body A (Glute Dominant)</span></div>
+    <div class="data-row"><span class="data-label">Tuesday</span><span class="data-value">Upper Body + Core</span></div>
+    <div class="data-row"><span class="data-label">Wednesday</span><span class="data-value">Active Recovery (4.5 mi dog walk)</span></div>
+    <div class="data-row"><span class="data-label">Thursday</span><span class="data-value">Lower Body B (Quad + Hamstring)</span></div>
+    <div class="data-row"><span class="data-label">Friday</span><span class="data-value">5K Run (Zone 2–3 effort)</span></div>
+    <div class="data-row"><span class="data-label">Saturday</span><span class="data-value">Upper Body + Core OR Rest</span></div>
+    <div class="data-row"><span class="data-label">Sunday</span><span class="data-value">Full Rest</span></div>
+  </div>
+</div>
+
+<!-- DAILY SCHEDULE -->
+<div id="section-schedule" class="section">
+  <p class="section-title">Daily Schedule</p>
+  <p class="section-intro">Anchoring nutrition and supplements to time-of-day habits eliminates the "I forgot" failure mode. Every action below has a specific trigger.</p>
+
+  <div class="callout">
+    <strong>Creatine fix:</strong> The inconsistency ends today. 3g creatine is taken every morning at 7:45am with breakfast — non-negotiable. It is placed next to the prenatal on the kitchen counter as a visual cue.
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Training Day Schedule</span><span class="card-tag tag-rose">Mon / Tue / Thu / Fri</span></div>
+
+    <div class="schedule-row"><span class="schedule-time">6:30 AM</span><span class="schedule-text"><strong>Wake.</strong> Lights on immediately. 16oz cold water. Face splash. No phone for 20 minutes.</span></div>
+    <div class="schedule-row"><span class="schedule-time">6:40 AM</span><span class="schedule-text"><strong>Pre-workout carbs.</strong> 1–2 dates + ½ banana. D3/K2 drops. Transparent Labs Lean (½ scoop) if training intensity is high — skip on lower-body accessory days or run days if preferred.</span></div>
+    <div class="schedule-row"><span class="schedule-time">7:00 AM</span><span class="schedule-text"><strong>Train.</strong> 45–55 min structured session per plan. Core work always first.</span></div>
+    <div class="schedule-row"><span class="schedule-time">7:50 AM</span><span class="schedule-text"><strong>Post-workout shake.</strong> 20g whey + 3g creatine monohydrate in water or milk. Creatine timing is flexible — this is training day anchor.</span></div>
+    <div class="schedule-row"><span class="schedule-time">8:15 AM</span><span class="schedule-text"><strong>Breakfast.</strong> Full structured meal (see Nutrition). Thorne prenatal + fish oil 3 softgels + Avmacol.</span></div>
+    <div class="schedule-row"><span class="schedule-time">12:30 PM</span><span class="schedule-text"><strong>Lunch.</strong> Structured meal per plan.</span></div>
+    <div class="schedule-row"><span class="schedule-time">3:30 PM</span><span class="schedule-text"><strong>Afternoon snack.</strong> Mandatory on training days — supports muscle protein synthesis and energy.</span></div>
+    <div class="schedule-row"><span class="schedule-time">7:00 PM</span><span class="schedule-text"><strong>Dinner.</strong> Flexible protein + carb + veg structure per plan.</span></div>
+    <div class="schedule-row"><span class="schedule-time">8:00 PM</span><span class="schedule-text"><strong>Blue light glasses on.</strong> Begins melatonin ramp-up for quality sleep.</span></div>
+    <div class="schedule-row"><span class="schedule-time">8:30 PM</span><span class="schedule-text"><strong>Stop eating.</strong> Hard cutoff for digestion and cortisol management.</span></div>
+    <div class="schedule-row"><span class="schedule-time">9:00 PM</span><span class="schedule-text"><strong>Magnesium glycinate 200mg.</strong> Chamomile tea optional. Wind-down begins.</span></div>
+    <div class="schedule-row"><span class="schedule-time">9:30–10:00 PM</span><span class="schedule-text"><strong>Sleep.</strong> Mouth tape + eye mask. Target 8.5–9 hours — this is a performance tool, not a luxury.</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Rest Day Adjustments</span><span class="card-tag tag-sage">Wed / Sat / Sun</span></div>
+    <div class="data-row"><span class="data-label">Pre-workout supplement</span><span class="data-value">Skip</span></div>
+    <div class="data-row"><span class="data-label">Creatine 3g</span><span class="data-value">Take at breakfast, not post-workout</span></div>
+    <div class="data-row"><span class="data-label">Post-workout shake</span><span class="data-value">Skip</span></div>
+    <div class="data-row"><span class="data-label">Afternoon snack</span><span class="data-value">Optional (not required)</span></div>
+    <div class="data-row"><span class="data-label">Total calories</span><span class="data-value">1,700 (vs 1,800 training days)</span></div>
+    <div class="data-row"><span class="data-label">All other supplements</span><span class="data-value">Same — prenatal, fish oil, Avmacol, D3/K2, magnesium</span></div>
+  </div>
+</div>
+
+<!-- TRAINING PLAN -->
+<div id="section-training" class="section">
+  <p class="section-title">Training Plan</p>
+  <p class="section-intro">Four structured sessions per week with built-in progressive overload. Lower body is the primary focus. Click a day to see the full session.</p>
+
+  <div class="callout sage-note">
+    <strong>Progressive overload rule:</strong> When you hit the top of the rep range for all sets in a given week, add the next weight increment the following week. Log every session — sets, reps, weight. This is non-negotiable. No log = no progress.
+  </div>
+
+  <div class="day-grid">
+    <div class="day-cell type-lower active" id="cell-mon" onclick="showDay('mon')">
+      <div class="day-name">Mon</div>
+      <div class="day-type">Lower A</div>
+    </div>
+    <div class="day-cell type-push" id="cell-tue" onclick="showDay('tue')">
+      <div class="day-name">Tue</div>
+      <div class="day-type">Upper + Core</div>
+    </div>
+    <div class="day-cell type-rest" id="cell-wed" onclick="showDay('wed')">
+      <div class="day-name">Wed</div>
+      <div class="day-type">Active Recovery</div>
+    </div>
+    <div class="day-cell type-lower" id="cell-thu" onclick="showDay('thu')">
+      <div class="day-name">Thu</div>
+      <div class="day-type">Lower B</div>
+    </div>
+    <div class="day-cell type-cardio" id="cell-fri" onclick="showDay('fri')">
+      <div class="day-name">Fri</div>
+      <div class="day-type">5K Run</div>
+    </div>
+    <div class="day-cell type-push" id="cell-sat" onclick="showDay('sat')">
+      <div class="day-name">Sat</div>
+      <div class="day-type">Upper / Rest</div>
+    </div>
+    <div class="day-cell type-rest" id="cell-sun" onclick="showDay('sun')">
+      <div class="day-name">Sun</div>
+      <div class="day-type">Full Rest</div>
+    </div>
+  </div>
+
+  <!-- MON -->
+  <div id="day-mon" class="workout-detail show">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Monday — Lower Body A (Glute Dominant)</span><span class="card-tag tag-sage">~50 min</span></div>
+      <p class="note">Warmup: 5 min brisk walk + 10 glute bridges + 10 banded lateral walks + leg swings</p>
+      <table class="exercise-table">
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Load / Cue</th><th>Coaching Note</th></tr></thead>
+        <tbody>
+          <tr><td>Dead Bug</td><td>3 × 8 each side</td><td>Bodyweight</td><td>Core first, always. Breathe out on extension. Lower back stays flat.</td></tr>
+          <tr><td>KB Romanian Deadlift</td><td>4 × 8–10</td><td>2 × 12kg → progress to 2 × 16kg</td><td>Primary glute/hamstring builder. Hinge at hip, soft knee. Feel the stretch at the bottom. Overload: when 10 reps feel controlled for 3 sessions, move to 16kg.</td></tr>
+          <tr><td>KB Goblet Squat</td><td>3 × 10–12</td><td>1 × 16kg</td><td>Depth is the goal. Heels down, chest up, elbows inside knees at bottom.</td></tr>
+          <tr><td>Banded Glute Bridge</td><td>4 × 12–15</td><td>Band + bodyweight</td><td>Band just above knees creates lateral tension — activates glute med. Full hip extension and 1-second squeeze at top.</td></tr>
+          <tr><td>Single-Leg KB RDL</td><td>3 × 8 each</td><td>1 × 12kg</td><td>Balance and unilateral strength. Use wall for balance as needed. Progress: remove wall support, then increase weight.</td></tr>
+          <tr><td>Lateral Band Walk</td><td>3 × 12 each direction</td><td>Band</td><td>Glute med finisher. Keep hips level, don't let the banded leg snap back.</td></tr>
+          <tr><td>Couch Stretch</td><td>2 × 60 sec each</td><td>—</td><td>Non-negotiable cooldown. Hip flexor recovery critical for glute activation in next session.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TUE -->
+  <div id="day-tue" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Tuesday — Upper Body + Core</span><span class="card-tag tag-rose">~45 min</span></div>
+      <p class="note">Warmup: Arm circles, band pull-aparts × 15, shoulder CARs × 5 each, scapular wall slides × 10</p>
+      <table class="exercise-table">
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Load / Cue</th><th>Coaching Note</th></tr></thead>
+        <tbody>
+          <tr><td>Hollow Body Hold</td><td>3 × 25–30 sec</td><td>Bodyweight</td><td>Core anchor for the session. Arms long, lower back glued to floor.</td></tr>
+          <tr><td>DB Shoulder Press</td><td>4 × 12–15 each</td><td>1 × 15lb DB → KB 12kg</td><td>Primary shoulder builder. Press directly overhead, lock out at top. The 15lb DB is the correct starting load — higher reps (12–15) build the same strength base. Overload: 15 reps each side for 3 sessions → move to KB 12kg and drop back to 3 × 8–10.</td></tr>
+          <tr><td>Bent-Over DB Row</td><td>4 × 12 each</td><td>1 × 15lb DB → KB 12kg</td><td>Back thickness and posture. Hinge at 45°, pull to hip, squeeze lats. Avoid shrugging. 15lb DB is the correct starting point — when 12 reps feel easy across all 4 sets for 3 sessions, progress to KB 12kg.</td></tr>
+          <tr><td>DB Floor Press (single arm)</td><td>3 × 12–15 each</td><td>1 × 15lb DB → KB 12kg</td><td>Chest and triceps. Floor limits range safely. Single-arm adds core anti-rotation demand. Control the descent — 2 sec down. Overload: 15 reps each side for 3 sessions → KB 12kg.</td></tr>
+          <tr><td>Resistance Band Pull-Apart</td><td>3 × 15</td><td>Band</td><td>Rear delt and rotator cuff health. Arms straight, pull to chest, hold 1 sec.</td></tr>
+          <tr><td>KB Halo</td><td>3 × 8 each direction</td><td>1 × 12kg</td><td>Shoulder stability and rotational control.</td></tr>
+          <tr><td>Plank</td><td>3 × 30–40 sec</td><td>Bodyweight</td><td>Quality over time. Hips level, don't let the low back sag. Progress to 60 sec by Week 6.</td></tr>
+          <tr><td>Doorway Chest Stretch</td><td>2 × 30 sec each</td><td>—</td><td>Offset the pressing work. Hold and breathe into the stretch.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WED -->
+  <div id="day-wed" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Wednesday — Active Recovery</span><span class="card-tag tag-sky">Zone 1–2</span></div>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;margin-bottom:16px;">
+        The 4.5-mile dog walk is the session. This is Zone 1–2 aerobic activity — it promotes blood flow, reduces DOMS, and contributes meaningfully to NEAT (non-exercise activity thermogenesis). No structured training today.
+      </p>
+      <div class="data-row"><span class="data-label">Walk duration</span><span class="data-value">~75–90 min</span></div>
+      <div class="data-row"><span class="data-label">Intensity</span><span class="data-value">Conversational pace — could speak full sentences</span></div>
+      <div class="data-row"><span class="data-label">Optional add-on</span><span class="data-value">10 min hip mobility (90/90 stretches, pigeon pose, couch stretch)</span></div>
+      <div class="data-row"><span class="data-label">Calories</span><span class="data-value">Rest day nutrition targets apply</span></div>
+    </div>
+  </div>
+
+  <!-- THU -->
+  <div id="day-thu" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Thursday — Lower Body B (Quad + Hamstring)</span><span class="card-tag tag-sage">~50 min</span></div>
+      <p class="note">Warmup: 5 min walk + 10 bodyweight squats + 10 fire hydrants + ankle circles</p>
+      <table class="exercise-table">
+        <thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Load / Cue</th><th>Coaching Note</th></tr></thead>
+        <tbody>
+          <tr><td>Bird Dog</td><td>3 × 8 each</td><td>Bodyweight</td><td>Core activation. Opposite arm/leg. Don't let the hip rotate. Slow and controlled.</td></tr>
+          <tr><td>KB Sumo Squat</td><td>4 × 10–12</td><td>1 × 16kg → 2 × 16kg</td><td>Quad and inner thigh emphasis. Wide stance, toes out 45°. Chest tall. Overload: 12 reps for 3 sessions → add second KB.</td></tr>
+          <tr><td>Reverse Lunge (KB)</td><td>3 × 10 each leg</td><td>1 × 12kg KB (contralateral — opposite hand to working leg)</td><td>Hold the KB in the opposite hand from the stepping leg — right leg steps back, KB in left hand. This cross-body load forces the core to resist lateral flexion, making the glutes and stabilizers work significantly harder than a neutral hold. Keep the torso tall and don't let the KB-side hip hike. Overload: add a 1-sec pause at the bottom for 3 sessions, then move to 1 × 16kg.</td></tr>
+          <tr><td>KB Swing</td><td>4 × 15</td><td>1 × 16kg</td><td>Posterior chain power. Hip hinge is the engine — not the arms. Powerful hip snap. This is metabolic training built in.</td></tr>
+          <tr><td>Slider Hamstring Curl</td><td>3 × 10–12</td><td>Socks on hardwood or 2 paper plates on carpet</td><td>Best no-equipment hamstring curl available. Lie on back, heels on sliders (socks on hardwood floor, or paper plates on carpet). Bridge hips up, curl heels toward glutes, then extend — hips stay elevated throughout. If too easy: slow to a 3-sec curl + 3-sec extend tempo. Progresses to single-leg slider curl in Phase 2. This is genuinely hard — expect failure before 12 reps at first.</td></tr>
+          <tr><td>Side-Lying Clam</td><td>3 × 15 each</td><td>Band</td><td>Glute med activation. Keep hips stacked — don't let the pelvis rock back.</td></tr>
+          <tr><td>Figure-4 Stretch</td><td>2 × 60 sec each</td><td>—</td><td>Hip external rotation and piriformis release. Breathe.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FRI -->
+  <div id="day-fri" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Friday — 5K Run</span><span class="card-tag tag-sky">Zone 2–3</span></div>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;margin-bottom:16px;">
+        The Friday 5K stays — it is earning its place. It provides aerobic base development, mood regulation (serotonin and endorphin response), and calorie expenditure. At 9 min/mile, this is solid Zone 2–3 aerobic work.
+      </p>
+      <div class="data-row"><span class="data-label">Week 1–4</span><span class="data-value">Maintain current 9 min/mile comfortable pace</span></div>
+      <div class="data-row"><span class="data-label">Week 5–10</span><span class="data-value">Option: add 1 fartlek interval per run (30-sec pick-up × 3)</span></div>
+      <div class="data-row"><span class="data-label">Week 11+</span><span class="data-value">Option: extend to 4 miles OR add one tempo mile</span></div>
+      <div class="data-row"><span class="data-label">TTC note</span><span class="data-value">Running is safe while TTC. Reduce intensity if nausea or fatigue develops (early pregnancy sign).</span></div>
+      <div class="data-row"><span class="data-label">Post-run</span><span class="data-value">5 min walking cooldown + quad/calf stretch</span></div>
+    </div>
+  </div>
+
+  <!-- SAT -->
+  <div id="day-sat" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Saturday — Optional Upper Body or Rest</span><span class="card-tag tag-rose">Flexible</span></div>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;">
+        If you feel good and training is going well, repeat the Tuesday Upper Body + Core session. If life is busy or you feel undercovered, rest completely. Do not force this session — recovery quality matters more than volume on week 4+.
+      </p>
+    </div>
+  </div>
+
+  <!-- SUN -->
+  <div id="day-sun" class="workout-detail">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Sunday — Full Rest</span><span class="card-tag tag-sage">Recovery</span></div>
+      <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;">
+        Full rest day. Daily dog walks continue — this is NEAT, not training. Sleep is the primary performance tool today. Protect it.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- NUTRITION -->
+<div id="section-nutrition" class="section">
+  <p class="section-title">Nutrition Plan</p>
+  <p class="section-intro">All weights are cooked/as-consumed. Every meal has exact grams, calories, and protein. Protein distributed across the day — not stacked at dinner. Carbohydrates are not restricted; they are managed.</p>
+
+  <div class="callout ttc">
+    <strong>TTC note:</strong> Carbohydrates matter for LH surge, progesterone production, and thyroid function. Going low-carb while TTC is counterproductive. This plan keeps carbs at moderate, hormone-supportive levels every day.
+  </div>
+
+  <h3 class="sub">Training Day — ~1,800 cal · 125g protein</h3>
+
+  <div class="meal-block">
+    <div class="meal-time">6:40 AM · Pre-Workout</div>
+    <div class="meal-name">2 Medjool Dates</div>
+    <ul class="meal-ingredients">
+      <li><span>Medjool dates, pitted</span><span class="qty">2 dates · 40g · 110 cal · 1g protein · 30g carbs</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">110 cal</span>
+      <span class="t-pro">1g protein</span>
+      <span class="t-carb">~30g carbs</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">7:50 AM · Post-Workout Breakfast</div>
+    <div class="meal-name">Perfect Bar + Whey Shake</div>
+    <ul class="meal-ingredients">
+      <li><span>Perfect Bar (chocolate chip or peanut butter, 64g)</span><span class="qty">310 cal · 15g protein · 28g carbs</span></li>
+      <li><span>Whey protein powder, 1 scoop</span><span class="qty">~110 cal · 20g protein</span></li>
+      <li><span>Creatine monohydrate — add directly to shake</span><span class="qty">3g · 0 cal</span></li>
+      <li><span>Water, 240ml</span><span class="qty">0 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~420 cal</span>
+      <span class="t-pro">35g protein</span>
+      <span class="t-carb">~30g carbs</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">12:30 PM · Lunch</div>
+    <div class="meal-name">Cottage Cheese, Eggs, Rice Cakes & Avocado</div>
+    <ul class="meal-ingredients">
+      <li><span>Cottage cheese, 2% milkfat</span><span class="qty">120g · 100 cal · 13g protein</span></li>
+      <li><span>Hard boiled eggs</span><span class="qty">2 large · 140 cal · 12g protein</span></li>
+      <li><span>Rice cakes (Sprouts)</span><span class="qty">2 cakes · 70 cal · 1g protein</span></li>
+      <li><span>½ avocado</span><span class="qty">60g · 100 cal · 1g protein</span></li>
+      <li><span>Baby spinach (handful alongside — no prep needed)</span><span class="qty">30g · 7 cal · 1g protein</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~417 cal</span>
+      <span class="t-pro">28g protein</span>
+      <span class="t-carb">~18g carbs</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">3:30 PM · Snack (Training Days — Mandatory)</div>
+    <div class="meal-name">Greek Yogurt Bowl</div>
+    <ul class="meal-ingredients">
+      <li><span>Fage 2% Greek yogurt</span><span class="qty">150g · 110 cal · 15g protein</span></li>
+      <li><span>Mixed berries (blueberries/blackberries)</span><span class="qty">60g · 35 cal · 0.5g protein</span></li>
+      <li><span>Unsalted mixed nuts</span><span class="qty">20g · 120 cal · 4g protein</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~265 cal</span>
+      <span class="t-pro">19.5g protein</span>
+    </div>
+  </div>
+
+  <p class="note" style="margin-bottom:20px;">All 9 dinners are portioned for Kelsey's targets: ~550–590 cal / 40–45g protein on training days. Rest day: reduce carb portion as noted in Rest Day Adjustments below.</p>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 1</div>
+    <div class="meal-name">Protein Bowl</div>
+    <ul class="meal-ingredients">
+      <li><span>Ground turkey 93/7, cooked</span><span class="qty">140g · 185 cal · 33g protein</span></li>
+      <li><span>Sweet potato, cooked</span><span class="qty">120g · 103 cal · 2g protein</span></li>
+      <li><span>Cottage cheese 2%</span><span class="qty">60g · 50 cal · 7g protein</span></li>
+      <li><span>Avocado</span><span class="qty">40g · 64 cal · 1g protein</span></li>
+      <li><span>Hot honey</span><span class="qty">10g · 30 cal</span></li>
+      <li><span>Olive oil</span><span class="qty">5g · 44 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~476 cal</span>
+      <span class="t-pro">~43g protein</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 2</div>
+    <div class="meal-name">Tortilla Tilapia</div>
+    <ul class="meal-ingredients">
+      <li><span>Costco tortilla tilapia, cooked from frozen</span><span class="qty">113g (1 piece) · 220 cal · 18g protein</span></li>
+      <li><span>White rice, cooked</span><span class="qty">130g · 170 cal · 3g protein</span></li>
+      <li><span>Bell peppers, sautéed</span><span class="qty">150g · 45 cal · 2g protein</span></li>
+      <li><span>Bagged salad</span><span class="qty">60g · 10 cal · 1g protein</span></li>
+      <li><span>Olive oil (for sauté)</span><span class="qty">8g · 71 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~516 cal</span>
+      <span class="t-pro">~24g protein</span>
+      <span class="t-carb" style="background:var(--rose-light);color:#7A3F3A;">Low protein — add 1 scoop whey to a glass of water alongside</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 3</div>
+    <div class="meal-name">Mexican Bowl</div>
+    <ul class="meal-ingredients">
+      <li><span>Ground turkey 93/7, cooked</span><span class="qty">140g · 185 cal · 33g protein</span></li>
+      <li><span>Black or pinto beans, cooked</span><span class="qty">80g · 91 cal · 6g protein</span></li>
+      <li><span>Sautéed veggies (peppers, onion, zucchini)</span><span class="qty">150g · 45 cal · 2g protein</span></li>
+      <li><span>Fage 2% Greek yogurt (sour cream sub)</span><span class="qty">60g · 44 cal · 6g protein</span></li>
+      <li><span>Olive oil (for sauté)</span><span class="qty">5g · 44 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~409 cal</span>
+      <span class="t-pro">~47g protein</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 4</div>
+    <div class="meal-name">Chicken Pizza</div>
+    <ul class="meal-ingredients">
+      <li><span>Full pizza made with: 165g canned chicken + 1 egg + 30g breadcrumbs</span><span class="qty">whole pizza ~380 cal · 50g protein</span></li>
+      <li><span>Kelsey eats</span><span class="qty">~200g of the pizza · ~195 cal · ~25g protein</span></li>
+      <li><span>Caesar salad topping</span><span class="qty">80g · 60 cal · 2g protein</span></li>
+      <li><span>Side: sweet potato, cooked</span><span class="qty">120g · 103 cal · 2g protein</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~358 cal</span>
+      <span class="t-pro">~29g protein</span>
+      <span class="t-carb" style="background:var(--rose-light);color:#7A3F3A;">Low protein — add 1 scoop whey to a glass of water alongside</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 5</div>
+    <div class="meal-name">Tri-Tip</div>
+    <ul class="meal-ingredients">
+      <li><span>Tri-tip, cooked</span><span class="qty">150g · 300 cal · 39g protein</span></li>
+      <li><span>White rice, cooked</span><span class="qty">120g · 156 cal · 3g protein</span></li>
+      <li><span>Bagged salad</span><span class="qty">80g · 14 cal · 1g protein</span></li>
+      <li><span>Olive oil (on salad)</span><span class="qty">5g · 44 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~514 cal</span>
+      <span class="t-pro">~43g protein</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 6</div>
+    <div class="meal-name">Street Corn Bowl</div>
+    <ul class="meal-ingredients">
+      <li><span>Ground turkey 93/7, cooked</span><span class="qty">140g · 185 cal · 33g protein</span></li>
+      <li><span>Sweet potato, cooked</span><span class="qty">100g · 86 cal · 2g protein</span></li>
+      <li><span>Corn, charred</span><span class="qty">60g · 55 cal · 2g protein</span></li>
+      <li><span>Cottage cheese 2%</span><span class="qty">60g · 50 cal · 7g protein</span></li>
+      <li><span>Avocado</span><span class="qty">35g · 56 cal · 1g protein</span></li>
+      <li><span>Lime + Tajín</span><span class="qty">~5 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~437 cal</span>
+      <span class="t-pro">~45g protein</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 7</div>
+    <div class="meal-name">Salmon Burgers</div>
+    <ul class="meal-ingredients">
+      <li><span>Salmon burger patty</span><span class="qty">113g (1 patty) · 150 cal · 22g protein</span></li>
+      <li><span>White rice, cooked</span><span class="qty">130g · 170 cal · 3g protein</span></li>
+      <li><span>Marinated cucumbers</span><span class="qty">100g · 20 cal · 1g protein</span></li>
+      <li><span>Kimchi</span><span class="qty">50g · 20 cal · 1g protein</span></li>
+      <li><span>Primal teriyaki or sriracha</span><span class="qty">15g · 25 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~385 cal</span>
+      <span class="t-pro">~27g protein</span>
+      <span class="t-carb" style="background:var(--rose-light);color:#7A3F3A;">Low protein — add a second patty (113g) for +22g protein and +150 cal, or add 1 scoop whey alongside</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 8</div>
+    <div class="meal-name">Grilled Chicken</div>
+    <ul class="meal-ingredients">
+      <li><span>Chicken breast, cooked</span><span class="qty">150g · 248 cal · 46g protein</span></li>
+      <li><span>White rice or sweet potato, cooked</span><span class="qty">120g · 155 cal · 3g protein</span></li>
+      <li><span>Veggies (any), steamed or roasted</span><span class="qty">150g · 45 cal · 3g protein</span></li>
+      <li><span>Olive oil</span><span class="qty">5g · 44 cal</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~492 cal</span>
+      <span class="t-pro">~52g protein</span>
+    </div>
+  </div>
+
+  <div class="meal-block">
+    <div class="meal-time">Dinner Option 9</div>
+    <div class="meal-name">Loaded Sweet Potato</div>
+    <ul class="meal-ingredients">
+      <li><span>Chicken breast, shredded and boiled</span><span class="qty">130g · 215 cal · 40g protein</span></li>
+      <li><span>Sweet potato, baked</span><span class="qty">150g · 129 cal · 3g protein</span></li>
+      <li><span>Fage 2% Greek yogurt</span><span class="qty">80g · 59 cal · 8g protein</span></li>
+    </ul>
+    <div class="meal-totals">
+      <span class="t-cal">~403 cal</span>
+      <span class="t-pro">~51g protein</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 class="sub">Rest Day Adjustments</h3>
+
+  <div class="card">
+    <div class="data-row"><span class="data-label">Total calories</span><span class="data-value">1,700 (vs 1,800 training days)</span></div>
+    <div class="data-row"><span class="data-label">Pre-workout carbs (dates/banana)</span><span class="data-value">Skip — no training</span></div>
+    <div class="data-row"><span class="data-label">Creatine 3g</span><span class="data-value">Add to morning shake as usual — same time, never skipped</span></div>
+    <div class="data-row"><span class="data-label">Breakfast</span><span class="data-value">Identical — Perfect Bar + whey shake. Do not cut protein on rest days.</span></div>
+    <div class="data-row"><span class="data-label">Lunch</span><span class="data-value">Identical — cottage cheese, eggs, rice cakes, avocado, spinach</span></div>
+    <div class="data-row"><span class="data-label">Afternoon snack</span><span class="data-value">Optional — beef stick + apple if hungry, skip if not</span></div>
+    <div class="data-row"><span class="data-label">Dinner carb</span><span class="data-value">Reduce to 80g sweet potato or 90g rice to offset lower expenditure</span></div>
+    <div class="data-row"><span class="data-label">All supplements</span><span class="data-value">Same — prenatal, fish oil, Avmacol, D3/K2, magnesium</span></div>
+  </div>
+
+</div>
+
+<!-- SUPPLEMENTS -->
+<div id="section-supplements" class="section">
+  <p class="section-title">Supplement Protocol</p>
+  <p class="section-intro">Every supplement has a specific dose, time, and rationale. The creatine problem is solved with a fixed anchor habit. All are TTC-safe.</p>
+
+  <div class="callout ttc">
+    <strong>TTC safety review complete.</strong> All supplements below are appropriate for trying to conceive and compatible with early pregnancy. Creatine in particular has emerging evidence of benefit for embryo energy metabolism and is explicitly included.
+  </div>
+
+  <h3 class="sub">Morning Protocol (with breakfast, 8:15am)</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Thorne Prenatal</div>
+      <div class="supp-dose">As directed</div>
+      <div class="supp-timing">Daily with breakfast</div>
+      <div class="supp-note">Methylfolate form — critical for neural tube development. Non-negotiable while TTC.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Nordic Naturals Fish Oil</div>
+      <div class="supp-dose">3 softgels · 1,650mg EPA+DHA</div>
+      <div class="supp-timing">Daily with breakfast</div>
+      <div class="supp-note">Anti-inflammatory, omega-3 for fetal brain development. TTC safe and beneficial.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Avmacol (Sulforaphane)</div>
+      <div class="supp-dose">As directed</div>
+      <div class="supp-timing">Daily with breakfast</div>
+      <div class="supp-note">Cellular antioxidant. Continue as is.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">D3 + K2 Drops</div>
+      <div class="supp-dose">2,000 IU D3</div>
+      <div class="supp-timing">Daily with breakfast</div>
+      <div class="supp-note">D3 at 2,000 IU appropriate for Kelsey's size (not 5,000 IU). K2 ensures calcium routing. TTC safe — D3 supports progesterone production.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Post-Workout (training days only, ~7:50am)</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Whey Protein</div>
+      <div class="supp-dose">1 scoop · 20g protein</div>
+      <div class="supp-timing">Within 30 min post-training</div>
+      <div class="supp-note">Supports muscle protein synthesis. Skip on rest days — dietary protein covers the rest.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Creatine Monohydrate</div>
+      <div class="supp-dose">3g daily (not 5g)</div>
+      <div class="supp-timing">Post-workout shake (training) or breakfast (rest days)</div>
+      <div class="supp-note">3g is the correct dose for 127 lb. TTC safe — emerging evidence for embryo energy benefit. Anchor habit: placed next to prenatal. Never skipped.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Pre-Workout (training days, optional)</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Transparent Labs Lean</div>
+      <div class="supp-dose">½ scoop</div>
+      <div class="supp-timing">20–30 min before training</div>
+      <div class="supp-note">½ scoop keeps caffeine under 100mg — safe for TTC. Stop immediately if pregnancy suspected. Skip on easy lower-body days if preferred.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Evening (9:00pm)</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Magnesium Glycinate</div>
+      <div class="supp-dose">200mg</div>
+      <div class="supp-timing">9:00pm nightly</div>
+      <div class="supp-note">Sleep quality, cortisol regulation, and muscle recovery. Glycinate form is gentle on the GI tract. TTC safe.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Creatine consistency fix:</strong> Place the creatine container directly next to the prenatal on the kitchen counter. The visual cue eliminates the "forgot" failure mode. It is taken every single day — training or rest.
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div id="section-roadmap" class="section">
+  <p class="section-title">6-Month Roadmap</p>
+  <p class="section-intro">A phased approach — build the habit, build the strength, then refine. Milestones are objective and measurable.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Weeks 1–4 · Phase 1</div>
+      <div class="timeline-title">Build the Foundation</div>
+      <div class="timeline-body">
+        The first month is not about maximum fat loss — it's about locking in the system.
+        <ul>
+          <li>Learn all movements. Prioritize form over load.</li>
+          <li>Hit the nutrition targets 5 out of 7 days minimum.</li>
+          <li>Creatine taken every single day without exception.</li>
+          <li>Log every session: exercise, weight, sets, reps.</li>
+          <li>Expected weight change: 1–3 lb (mostly water from creatine loading)</li>
+          <li><strong>Milestone:</strong> Can complete all exercises with correct form. Supplement routine locked in.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Weeks 5–8 · Phase 2</div>
+      <div class="timeline-title">Progressive Overload Kicks In</div>
+      <div class="timeline-body">
+        Movements are automatic now. Start pushing load.
+        <ul>
+          <li>KB RDL: target transition to 2 × 16kg.</li>
+          <li>Reverse lunge: move to 2 × 15lb dumbbells.</li>
+          <li>Plank: target 60 seconds consistently.</li>
+          <li>Nordic curl: progress toward partial unsupported eccentric.</li>
+          <li>Visible body composition changes should be emerging.</li>
+          <li><strong>Milestone:</strong> 3–4 lb fat loss. Measurable strength increases across all lifts. Clothes fitting differently.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Weeks 9–12 · Phase 3</div>
+      <div class="timeline-title">Momentum Phase</div>
+      <div class="timeline-body">
+        The body is in a rhythm. This is where the aesthetic changes accelerate.
+        <ul>
+          <li>Target 6–8 lb total fat loss by end of Week 12.</li>
+          <li>Lower body development visibly apparent — glute shape and hamstring definition emerging.</li>
+          <li>Upper body tone visible in shoulders and arms.</li>
+          <li>Consider adding optional fartlek intervals to Friday run.</li>
+          <li><strong>Milestone:</strong> Measurably below 22% body fat. Strength at Week 12 should significantly exceed Week 1 across every exercise.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Weeks 13–15 · Goal Window</div>
+      <div class="timeline-title">Approach Target Body Composition</div>
+      <div class="timeline-body">
+        On track for 18–20% body fat at ~118–122 lb.
+        <ul>
+          <li>Maintain nutrition targets. Do not restrict further — TTC hormonal health matters.</li>
+          <li>If progress stalls for 2+ weeks: assess adherence and NEAT (step count) before adjusting calories.</li>
+          <li>Do not drop below 1,600 cal on any day.</li>
+          <li><strong>Milestone:</strong> Goal body composition reached or within 1–2 lb.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">Weeks 16–26 · Maintenance + Muscle Build</div>
+      <div class="timeline-title">Recomposition & Longevity Phase</div>
+      <div class="timeline-body">
+        Goal weight achieved. Shift to body recomposition — maintain fat mass, continue building lean mass.
+        <ul>
+          <li>Calories move to maintenance (~2,000 cal/day).</li>
+          <li>Protein stays at 120–130g — muscle building continues.</li>
+          <li>Continue progressive overload — there is always a next level.</li>
+          <li>If pregnancy occurs: training continues at moderate intensity with appropriate modifications. Supplements continue (discontinue pre-workout immediately).</li>
+          <li><strong>Milestone at Month 6:</strong> Strongest, leanest, and most metabolically robust version of Kelsey. Habits are automatic. System is self-sustaining.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRACKING -->
+<div id="section-tracking" class="section">
+  <p class="section-title">Progress Tracking</p>
+  <p class="section-intro">What gets measured gets managed. Track these four data points consistently — not obsessively. Weekly, not daily.</p>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-label">Starting Weight</div>
+      <div class="metric-value">127</div>
+      <div class="metric-sub">lb</div>
+      <div class="metric-target">Target: 118–122 lb</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Waist</div>
+      <div class="metric-value">—</div>
+      <div class="metric-sub">measure at navel</div>
+      <div class="metric-target">Track weekly</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hip</div>
+      <div class="metric-value">—</div>
+      <div class="metric-sub">at widest point</div>
+      <div class="metric-target">Track weekly</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Body Fat %</div>
+      <div class="metric-value">~24%</div>
+      <div class="metric-sub">current estimate</div>
+      <div class="metric-target">Target: 18–20%</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Weigh-In Protocol</span><span class="card-tag tag-gold">Weekly</span></div>
+    <div class="data-row"><span class="data-label">Frequency</span><span class="data-value">Once per week — not daily</span></div>
+    <div class="data-row"><span class="data-label">Time</span><span class="data-value">Monday morning, immediately after waking, after bathroom, before eating</span></div>
+    <div class="data-row"><span class="data-label">Clothing</span><span class="data-value">Same (minimal) each week for consistency</span></div>
+    <div class="data-row"><span class="data-label">Scale fluctuations</span><span class="data-value">Normal ±2–3 lb day-to-day. Track the trend over 4 weeks, not the number on any given day.</span></div>
+    <div class="data-row"><span class="data-label">No scale anxiety rule</span><span class="data-value">If the number triggers anxiety, move to biweekly. The goal is information, not self-judgment.</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Tape Measurements</span><span class="card-tag tag-sage">Monthly</span></div>
+    <div class="data-row"><span class="data-label">Waist</span><span class="data-value">At navel, relaxed</span></div>
+    <div class="data-row"><span class="data-label">Hips</span><span class="data-value">At widest point</span></div>
+    <div class="data-row"><span class="data-label">Thigh</span><span class="data-value">Mid-thigh, standing</span></div>
+    <div class="data-row"><span class="data-label">Frequency</span><span class="data-value">First Monday of each month, same time as weigh-in</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Strength Log</span><span class="card-tag tag-rose">Every Session</span></div>
+    <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.7;">
+      Log every session in a Notes app, spreadsheet, or dedicated fitness app. Record: exercise name, weight used, sets completed, reps per set. Review weekly. This is the most important tracking tool in the protocol — it is the only way to verify progressive overload is happening.
+    </p>
+    <div class="data-row"><span class="data-label">Overload trigger</span><span class="data-value">Hit top of rep range on all sets for 3 sessions → add weight next session</span></div>
+    <div class="data-row"><span class="data-label">Benchmark check</span><span class="data-value">Compare current weights to Week 1 every 4 weeks</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Progress Photos</span><span class="card-tag tag-sky">Monthly</span></div>
+    <div class="data-row"><span class="data-label">Frequency</span><span class="data-value">Once per month, same day as measurements</span></div>
+    <div class="data-row"><span class="data-label">Angles</span><span class="data-value">Front, back, and side</span></div>
+    <div class="data-row"><span class="data-label">Lighting & clothing</span><span class="data-value">Same setup each time for valid comparison</span></div>
+    <div class="data-row"><span class="data-label">Why this matters</span><span class="data-value">Body recomposition (gaining muscle while losing fat) often stalls the scale but shows clearly in photos. Photos catch what the scale misses.</span></div>
+  </div>
+
+  <div class="callout">
+    <strong>If progress stalls for 2+ consecutive weeks:</strong> Before adjusting calories, first verify: (1) Are you actually hitting protein targets? (2) Has step count dropped? (3) Is sleep quality down? Address these in order. Calories are the last lever, not the first.
+  </div>
+</div>
+
+</div>
+
+<!-- TRACKER -->
+<div id="section-tracker" class="section">
+  <p class="section-title">Log</p>
+  <p class="section-intro">All entries save permanently to your Google Sheet. Set up the connection once below, then log from any device.</p>
+
+  <!-- Setup card -->
+  <div class="card" id="setup-card">
+    <div class="card-header"><span class="card-title">Google Sheets Setup</span><span class="card-tag tag-gold">One-time · ~5 min</span></div>
+    <p style="font-size:14px;color:var(--ink-mid);line-height:1.8;margin-bottom:20px;">Follow these steps once. After that, every entry you log here saves directly to your spreadsheet.</p>
+    <div class="schedule-row"><span class="schedule-time" style="min-width:28px;font-size:13px;color:var(--ink);">1</span><span class="schedule-text">Go to <a href="https://sheets.new" target="_blank" style="color:var(--sky);">sheets.new</a> to create a new Google Sheet. Name it <strong>Kelsey Protocol Tracker</strong>.</span></div>
+    <div class="schedule-row"><span class="schedule-time" style="min-width:28px;font-size:13px;color:var(--ink);">2</span><span class="schedule-text">In the sheet, click <strong>Extensions → Apps Script</strong>. Delete any code in the editor.</span></div>
+    <div class="schedule-row"><span class="schedule-time" style="min-width:28px;font-size:13px;color:var(--ink);">3</span><span class="schedule-text">Paste the script below into the editor, then click <strong>Save</strong> (floppy disk icon).</span></div>
+    <div class="schedule-row"><span class="schedule-time" style="min-width:28px;font-size:13px;color:var(--ink);">4</span><span class="schedule-text">Click <strong>Deploy → New deployment</strong>. Set type to <strong>Web app</strong>. Set "Who has access" to <strong>Anyone</strong>. Click Deploy and copy the URL it gives you.</span></div>
+    <div class="schedule-row"><span class="schedule-time" style="min-width:28px;font-size:13px;color:var(--ink);">5</span><span class="schedule-text">Paste that URL into the field below and click Save.</span></div>
+
+    <div style="background:var(--cream);border-radius:10px;padding:16px;margin:20px 0;font-family:monospace;font-size:12px;color:var(--ink-mid);line-height:1.8;overflow-x:auto;white-space:pre;">function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var data = JSON.parse(e.postData.contents);
+  var tab = sheet.getSheetByName(data.tab) || sheet.insertSheet(data.tab);
+  if (tab.getLastRow() === 0) tab.appendRow(data.headers);
+  tab.appendRow(data.row);
+  return ContentService.createTextOutput("ok");
+}</div>
+
+    <div style="display:flex;gap:10px;align-items:center;margin-top:8px;">
+      <input type="text" id="sheets-url" placeholder="Paste your Web App URL here" style="flex:1;font-size:13px;" />
+      <button onclick="saveSheetUrl()" style="white-space:nowrap;">Save URL</button>
+    </div>
+    <p id="url-status" style="font-size:12px;color:var(--sage);margin-top:8px;display:none;">✓ URL saved. You're connected.</p>
+  </div>
+
+  <!-- Tab switcher -->
+  <div style="display:flex;gap:8px;margin:28px 0 20px;flex-wrap:wrap;">
+    <button class="tracker-tab active" onclick="showTracker('weight')">Weight</button>
+    <button class="tracker-tab" onclick="showTracker('measurements')">Measurements</button>
+    <button class="tracker-tab" onclick="showTracker('lower-a')">Lower A</button>
+    <button class="tracker-tab" onclick="showTracker('upper')">Upper</button>
+    <button class="tracker-tab" onclick="showTracker('lower-b')">Lower B</button>
+    <button class="tracker-tab" onclick="showTracker('sat-upper')">Sat Upper</button>
+  </div>
+
+  <!-- WEIGHT -->
+  <div id="tracker-weight" class="tracker-panel">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Weekly Weigh-In</span><span class="card-tag tag-gold">Every Monday AM</span></div>
+      <p class="note">Same time, same conditions — immediately after waking, after bathroom, before eating.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div>
+          <label class="input-label">Date</label>
+          <input type="date" id="w-date" />
+        </div>
+        <div>
+          <label class="input-label">Weight (lb)</label>
+          <input type="number" id="w-weight" placeholder="e.g. 126.4" step="0.1" />
+        </div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label class="input-label">Notes (optional — energy, sleep quality, cycle day)</label>
+        <input type="text" id="w-notes" placeholder="e.g. Felt bloated, day 14" />
+      </div>
+      <button onclick="logWeight()" class="log-btn">Save Weigh-In →</button>
+      <p id="w-status" class="log-status"></p>
+    </div>
+
+    <div class="card" id="weight-history-card" style="display:none;">
+      <div class="card-header"><span class="card-title">Recent Entries</span></div>
+      <div id="weight-history"></div>
+    </div>
+  </div>
+
+  <!-- MEASUREMENTS -->
+  <div id="tracker-measurements" class="tracker-panel" style="display:none;">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Monthly Measurements</span><span class="card-tag tag-sage">First Monday of month</span></div>
+      <p class="note">Measure in the morning before eating. Tape snug but not tight. Same spots every time.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div>
+          <label class="input-label">Date</label>
+          <input type="date" id="m-date" />
+        </div>
+        <div>
+          <label class="input-label">Weight (lb)</label>
+          <input type="number" id="m-weight" placeholder="e.g. 125.0" step="0.1" />
+        </div>
+        <div>
+          <label class="input-label">Waist (in) — at navel</label>
+          <input type="number" id="m-waist" placeholder="e.g. 27.5" step="0.25" />
+        </div>
+        <div>
+          <label class="input-label">Hips (in) — widest point</label>
+          <input type="number" id="m-hips" placeholder="e.g. 37.0" step="0.25" />
+        </div>
+        <div>
+          <label class="input-label">Thigh (in) — mid thigh</label>
+          <input type="number" id="m-thigh" placeholder="e.g. 22.0" step="0.25" />
+        </div>
+      </div>
+      <button onclick="logMeasurements()" class="log-btn">Save Measurements →</button>
+      <p id="m-status" class="log-status"></p>
+    </div>
+
+    <div class="card" id="meas-history-card" style="display:none;">
+      <div class="card-header"><span class="card-title">Recent Entries</span></div>
+      <div id="meas-history"></div>
+    </div>
+  </div>
+
+  <!-- LOWER A -->
+  <div id="tracker-lower-a" class="tracker-panel" style="display:none;">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Lower Body A — Glute Dominant</span><span class="card-tag tag-sage">Log Session</span></div>
+      <div style="margin-bottom:12px;">
+        <label class="input-label">Date</label>
+        <input type="date" id="la-date" style="max-width:200px;" />
+      </div>
+      <div id="la-exercises"></div>
+      <button onclick="logSession('lower-a')" class="log-btn" style="margin-top:16px;">Save Session →</button>
+      <p id="la-status" class="log-status"></p>
+    </div>
+  </div>
+
+  <!-- UPPER -->
+  <div id="tracker-upper" class="tracker-panel" style="display:none;">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Upper Body + Core</span><span class="card-tag tag-rose">Log Session</span></div>
+      <div style="margin-bottom:12px;">
+        <label class="input-label">Date</label>
+        <input type="date" id="up-date" style="max-width:200px;" />
+      </div>
+      <div id="up-exercises"></div>
+      <button onclick="logSession('upper')" class="log-btn" style="margin-top:16px;">Save Session →</button>
+      <p id="up-status" class="log-status"></p>
+    </div>
+  </div>
+
+  <!-- LOWER B -->
+  <div id="tracker-lower-b" class="tracker-panel" style="display:none;">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Lower Body B — Quad + Hamstring</span><span class="card-tag tag-sage">Log Session</span></div>
+      <div style="margin-bottom:12px;">
+        <label class="input-label">Date</label>
+        <input type="date" id="lb-date" style="max-width:200px;" />
+      </div>
+      <div id="lb-exercises"></div>
+      <button onclick="logSession('lower-b')" class="log-btn" style="margin-top:16px;">Save Session →</button>
+      <p id="lb-status" class="log-status"></p>
+    </div>
+  </div>
+
+  <!-- SAT UPPER -->
+  <div id="tracker-sat-upper" class="tracker-panel" style="display:none;">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Saturday Upper Body + Core</span><span class="card-tag tag-rose">Log Session</span></div>
+      <div style="margin-bottom:12px;">
+        <label class="input-label">Date</label>
+        <input type="date" id="su-date" style="max-width:200px;" />
+      </div>
+      <div id="su-exercises"></div>
+      <button onclick="logSession('sat-upper')" class="log-btn" style="margin-top:16px;">Save Session →</button>
+      <p id="su-status" class="log-status"></p>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .tracker-tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border-mid);
+    background: var(--warm-white);
+    color: var(--ink-mid);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tracker-tab:hover { border-color: var(--gold); color: var(--ink); }
+  .tracker-tab.active { background: var(--ink); color: var(--warm-white); border-color: var(--ink); }
+
+  .input-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+  }
+
+  .log-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    background: var(--ink);
+    color: var(--warm-white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .log-btn:hover { opacity: 0.85; }
+
+  .log-status {
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 20px;
+    color: var(--sage);
+  }
+  .log-status.error { color: var(--rose); }
+
+  .exercise-block {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: var(--cream);
+  }
+  .exercise-block-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .exercise-block-target {
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+  .set-row {
+    display: grid;
+    grid-template-columns: 48px 1fr 1fr auto;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .set-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .set-row input {
+    font-size: 13px;
+    padding: 6px 10px;
+    height: 34px;
+  }
+  .set-row input::placeholder { font-size: 12px; }
+  .overload-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: var(--gold-light);
+    color: #8A6020;
+    margin-top: 8px;
+  }
+  .overload-badge.ready { background: var(--sage-light); color: #3D5E40; }
+
+  .history-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-mid);
+  }
+  .history-row:last-child { border-bottom: none; }
+  .history-row strong { color: var(--ink); }
+</style>
+
+<script>
+// ── Session definitions ──────────────────────────────────────────
+const SESSIONS = {
+  'lower-a': {
+    prefix: 'la',
+    exercises: [
+      { name: 'Dead Bug', sets: 3, target: '8 each side · BW' },
+      { name: 'KB Romanian Deadlift', sets: 4, target: '8–10 reps · 2×12kg → 2×16kg' },
+      { name: 'KB Goblet Squat', sets: 3, target: '10–12 reps · 16kg' },
+      { name: 'Banded Glute Bridge', sets: 4, target: '12–15 reps · Band' },
+      { name: 'Single-Leg KB RDL', sets: 3, target: '8 each · 12kg' },
+      { name: 'Lateral Band Walk', sets: 3, target: '12 each direction · Band' },
+    ]
+  },
+  'upper': {
+    prefix: 'up',
+    exercises: [
+      { name: 'Hollow Body Hold', sets: 3, target: '25–30 sec · BW' },
+      { name: 'DB Shoulder Press', sets: 4, target: '12–15 each · 15lb DB → 12kg' },
+      { name: 'Bent-Over DB Row', sets: 4, target: '12 each · 15lb DB → 12kg' },
+      { name: 'DB Floor Press (single arm)', sets: 3, target: '12–15 each · 15lb DB → 12kg' },
+      { name: 'Band Pull-Apart', sets: 3, target: '15 reps · Band' },
+      { name: 'KB Halo', sets: 3, target: '8 each direction · 12kg' },
+      { name: 'Plank', sets: 3, target: '30–40 sec → 60 sec · BW' },
+    ]
+  },
+  'lower-b': {
+    prefix: 'lb',
+    exercises: [
+      { name: 'Bird Dog', sets: 3, target: '8 each · BW' },
+      { name: 'KB Sumo Squat', sets: 4, target: '10–12 reps · 16kg → 2×16kg' },
+      { name: 'Reverse Lunge (contralateral KB)', sets: 3, target: '10 each leg · 12kg → 16kg' },
+      { name: 'KB Swing', sets: 4, target: '15 reps · 16kg' },
+      { name: 'Slider Hamstring Curl', sets: 3, target: '10–12 reps · BW' },
+      { name: 'Side-Lying Clam', sets: 3, target: '15 each · Band' },
+    ]
+  },
+  'sat-upper': {
+    prefix: 'su',
+    exercises: [
+      { name: 'Hollow Body Hold', sets: 3, target: '25–30 sec · BW' },
+      { name: 'DB Shoulder Press', sets: 4, target: '12–15 each · 15lb DB → 12kg' },
+      { name: 'Bent-Over DB Row', sets: 4, target: '12 each · 15lb DB → 12kg' },
+      { name: 'DB Floor Press (single arm)', sets: 3, target: '12–15 each · 15lb DB → 12kg' },
+      { name: 'Band Pull-Apart', sets: 3, target: '15 reps · Band' },
+      { name: 'KB Halo', sets: 3, target: '8 each direction · 12kg' },
+      { name: 'Plank', sets: 3, target: '30–40 sec → 60 sec · BW' },
+    ]
+  }
+};
+
+// ── Google Sheets URL ────────────────────────────────────────────
+function saveSheetUrl() {
+  const url = document.getElementById('sheets-url').value.trim();
+  if (!url.startsWith('https://')) {
+    alert('Please paste a valid URL starting with https://');
+    return;
+  }
+  localStorage.setItem('kelsey_sheets_url', url);
+  document.getElementById('url-status').style.display = 'block';
+  document.getElementById('sheets-url').value = '';
+}
+
+function getSheetUrl() {
+  return localStorage.getItem('kelsey_sheets_url');
+}
+
+async function sendToSheets(payload) {
+  const url = getSheetUrl();
+  if (!url) {
+    return { ok: false, msg: 'No Google Sheet connected — paste your Web App URL in the Setup section above.' };
+  }
+  try {
+    await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    return { ok: true };
+  } catch(e) {
+    return { ok: false, msg: 'Could not reach Google Sheets. Check your URL and internet connection.' };
+  }
+}
+
+// ── Local history helpers ────────────────────────────────────────
+function saveLocal(key, entry) {
+  const existing = JSON.parse(localStorage.getItem(key) || '[]');
+  existing.unshift(entry);
+  localStorage.setItem(key, JSON.stringify(existing.slice(0, 20)));
+}
+
+function getLocal(key) {
+  return JSON.parse(localStorage.getItem(key) || '[]');
+}
+
+// ── Weight log ───────────────────────────────────────────────────
+async function logWeight() {
+  const date = document.getElementById('w-date').value;
+  const weight = document.getElementById('w-weight').value;
+  const notes = document.getElementById('w-notes').value;
+  const status = document.getElementById('w-status');
+  if (!date || !weight) { status.textContent = 'Please enter a date and weight.'; status.className='log-status error'; return; }
+  const entry = { date, weight: parseFloat(weight), notes };
+  saveLocal('kelsey_weight', entry);
+  renderWeightHistory();
+  const result = await sendToSheets({
+    tab: 'Weight',
+    headers: ['Date', 'Weight (lb)', 'Notes'],
+    row: [date, parseFloat(weight), notes]
+  });
+  status.className = 'log-status' + (result.ok ? '' : ' error');
+  status.textContent = result.ok ? '✓ Saved to Google Sheet.' : result.msg;
+  if (result.ok) { document.getElementById('w-weight').value=''; document.getElementById('w-notes').value=''; }
+}
+
+function renderWeightHistory() {
+  const entries = getLocal('kelsey_weight');
+  if (!entries.length) return;
+  const card = document.getElementById('weight-history-card');
+  const container = document.getElementById('weight-history');
+  card.style.display = 'block';
+  container.innerHTML = entries.slice(0,8).map(e =>
+    `<div class="history-row"><strong>${e.date}</strong><span>${e.weight} lb</span><span style="color:var(--ink-light);font-size:12px;">${e.notes||''}</span></div>`
+  ).join('');
+}
+
+// ── Measurements log ─────────────────────────────────────────────
+async function logMeasurements() {
+  const date = document.getElementById('m-date').value;
+  const weight = document.getElementById('m-weight').value;
+  const waist = document.getElementById('m-waist').value;
+  const hips = document.getElementById('m-hips').value;
+  const thigh = document.getElementById('m-thigh').value;
+  const status = document.getElementById('m-status');
+  if (!date || !waist) { status.textContent='Please enter at least a date and waist measurement.'; status.className='log-status error'; return; }
+  const entry = { date, weight, waist, hips, thigh };
+  saveLocal('kelsey_measurements', entry);
+  renderMeasHistory();
+  const result = await sendToSheets({
+    tab: 'Measurements',
+    headers: ['Date','Weight (lb)','Waist (in)','Hips (in)','Thigh (in)'],
+    row: [date, weight||'', waist, hips||'', thigh||'']
+  });
+  status.className = 'log-status' + (result.ok ? '' : ' error');
+  status.textContent = result.ok ? '✓ Saved to Google Sheet.' : result.msg;
+}
+
+function renderMeasHistory() {
+  const entries = getLocal('kelsey_measurements');
+  if (!entries.length) return;
+  const card = document.getElementById('meas-history-card');
+  const container = document.getElementById('meas-history');
+  card.style.display = 'block';
+  container.innerHTML = entries.slice(0,4).map(e =>
+    `<div class="history-row"><strong>${e.date}</strong><span>W: ${e.waist}"</span><span>H: ${e.hips||'—'}"</span><span>T: ${e.thigh||'—'}"</span>${e.weight?`<span>${e.weight} lb</span>`:''}</div>`
+  ).join('');
+}
+
+// ── Exercise blocks renderer ─────────────────────────────────────
+function buildExerciseBlocks(sessionKey) {
+  const session = SESSIONS[sessionKey];
+  const prefix = session.prefix;
+  const container = document.getElementById(prefix + '-exercises');
+  if (!container || container.children.length) return;
+  session.exercises.forEach((ex, i) => {
+    const block = document.createElement('div');
+    block.className = 'exercise-block';
+    let setsHtml = '';
+    for (let s = 1; s <= ex.sets; s++) {
+      setsHtml += `
+        <div class="set-row">
+          <span class="set-label">Set ${s}</span>
+          <input type="number" placeholder="Weight (lb/kg)" id="${prefix}-ex${i}-s${s}-w" step="0.5" min="0" />
+          <input type="number" placeholder="Reps" id="${prefix}-ex${i}-s${s}-r" step="1" min="0" />
+          <span id="${prefix}-ex${i}-s${s}-flag" style="font-size:11px;color:var(--sage);min-width:24px;"></span>
+        </div>`;
+    }
+    block.innerHTML = `
+      <div class="exercise-block-name">${ex.name}</div>
+      <div class="exercise-block-target">Target: ${ex.target}</div>
+      ${setsHtml}
+      <div id="${prefix}-ex${i}-overload" style="margin-top:4px;"></div>`;
+    container.appendChild(block);
+  });
+}
+
+// ── Session log ──────────────────────────────────────────────────
+async function logSession(sessionKey) {
+  const session = SESSIONS[sessionKey];
+  const prefix = session.prefix;
+  const dateEl = document.getElementById(prefix + '-date');
+  const status = document.getElementById(prefix + '-status');
+  if (!dateEl.value) { status.textContent='Please enter a date.'; status.className='log-status error'; return; }
+
+  const rows = [];
+  session.exercises.forEach((ex, i) => {
+    for (let s = 1; s <= ex.sets; s++) {
+      const w = document.getElementById(`${prefix}-ex${i}-s${s}-w`)?.value || '';
+      const r = document.getElementById(`${prefix}-ex${i}-s${s}-r`)?.value || '';
+      rows.push([dateEl.value, ex.name, s, w, r]);
+    }
+  });
+
+  // Save locally
+  const existing = getLocal('kelsey_session_' + sessionKey);
+  existing.unshift({ date: dateEl.value, rows });
+  localStorage.setItem('kelsey_session_' + sessionKey, JSON.stringify(existing.slice(0, 10)));
+
+  // Check overload
+  checkOverload(sessionKey);
+
+  const result = await sendToSheets({
+    tab: sessionKey.replace('-',' ').replace(/\b\w/g,c=>c.toUpperCase()),
+    headers: ['Date', 'Exercise', 'Set', 'Weight', 'Reps'],
+    row: rows[0]
+  });
+
+  // Send all rows
+  for (let rowIndex = 1; rowIndex < rows.length; rowIndex++) {
+    await sendToSheets({
+      tab: sessionKey.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),
+      headers: ['Date','Exercise','Set','Weight','Reps'],
+      row: rows[rowIndex]
+    });
+  }
+
+  status.className = 'log-status' + (result.ok ? '' : ' error');
+  status.textContent = result.ok ? '✓ Session saved to Google Sheet.' : result.msg;
+}
+
+// ── Progressive overload checker ─────────────────────────────────
+function checkOverload(sessionKey) {
+  const session = SESSIONS[sessionKey];
+  const prefix = session.prefix;
+  const history = getLocal('kelsey_session_' + sessionKey);
+  if (history.length < 3) return;
+
+  session.exercises.forEach((ex, i) => {
+    const last3 = history.slice(0, 3);
+    const topReps = parseInt(ex.target.match(/(\d+)(?:–\d+)?\s*reps?/)?.[1] || ex.target.match(/(\d+)/)?.[1] || 0);
+    let allHitTop = true;
+    last3.forEach(sess => {
+      sess.rows?.forEach(row => {
+        if (row[1] === ex.name) {
+          if (parseInt(row[4]) < topReps) allHitTop = false;
+        }
+      });
+    });
+    const badge = document.getElementById(`${prefix}-ex${i}-overload`);
+    if (badge) {
+      badge.innerHTML = allHitTop
+        ? `<span class="overload-badge ready">🔼 Ready to increase weight</span>`
+        : `<span class="overload-badge">Keep building — ${topReps} reps all sets × 3 sessions to progress</span>`;
+    }
+  });
+}
+
+// ── Navigation ───────────────────────────────────────────────────
+function show(section) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-' + section).classList.add('active');
+  event.target.classList.add('active');
+  if (section === 'tracker') {
+    renderWeightHistory();
+    renderMeasHistory();
+    Object.keys(SESSIONS).forEach(k => buildExerciseBlocks(k));
+    const saved = localStorage.getItem('kelsey_sheets_url');
+    if (saved) {
+      document.getElementById('url-status').style.display = 'block';
+      document.getElementById('sheets-url').placeholder = 'URL saved ✓ — paste new URL to update';
+    }
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showTracker(panel) {
+  document.querySelectorAll('.tracker-panel').forEach(p => p.style.display='none');
+  document.querySelectorAll('.tracker-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tracker-' + panel).style.display = 'block';
+  event.target.classList.add('active');
+}
+
+function showDay(day) {
+  document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.workout-detail').forEach(d => d.classList.remove('show'));
+  document.getElementById('cell-' + day).classList.add('active');
+  document.getElementById('day-' + day).classList.add('show');
+}
+
+// Set today's date as default on all date inputs
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  ['w-date','m-date','la-date','up-date','lb-date','su-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = today;
+  });
+});
+</script>
+
+</body>
+</html>
